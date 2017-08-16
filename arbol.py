@@ -31,23 +31,27 @@ def evaluar(arbol):
 
 
 def armarArbol(pila):
+   
     auxPila=Pila()
-    izq, der, valor
-    while not len (pila):
+    izq, der, valor=None,None,""
+    while not len (pila)==0:
+       
         valor=pila.pop(0)
         if valor in "+-*/":
-            der= auxPila.desapilar()
+            der=auxPila.desapilar()
             izq=auxPila.desapilar()
-            else:
+            auxPila.apilar(Nodo(valor,izq,der))
+        else:
                 auxPila.apilar(Nodo(valor))
+   
+    return auxPila.desapilar()
                 
-            
+
         
-  
-posord= raw_input("ingrese la cadena")
-posord ="5 2 2 * - 10 2 / +"
-pilaCad=posord.split(" ")
-otraPila=Pila()
+def prueba(linea):
+    pilaCad=linea.split(" ")
+    print evaluar(armarArbol(pilaCad))
+
 
 
                
